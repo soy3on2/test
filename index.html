@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
+ï»¿<!DOCTYPE html><html lang="ko"><head><meta charset="UTF-8">
 <title>í’ˆì§ˆTF í´ë” íŠ¸ë¦¬</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -37,7 +37,7 @@ button:hover{background:#eef2f7}
 </style></head><body>
 <div id="wrap">
 <h1>&#128193; í’ˆì§ˆTF í´ë” íŠ¸ë¦¬</h1>
-<div class="meta">ë§ˆì§€ë§‰ ì—…ë°ì´íŠ¸: 2026-04-30 14:03 &nbsp;|&nbsp; GANA R&amp;D Co., Ltd.</div>
+<div class="meta">ë§ˆì§€ë§‰ ì—…ë°ì´íŠ¸: 2026-04-30 14:07 &nbsp;|&nbsp; GANA R&amp;D Co., Ltd.</div>
 <div id="ctrl">
   <input id="sb" placeholder="í´ë”ëª… ê²€ìƒ‰..." />
   <button onclick="ea()">ì „ì²´ í¼ì¹˜ê¸°</button>
@@ -59,7 +59,7 @@ function bt(ns,d){
     const div=document.createElement('div');div.className='node';
     const row=document.createElement('div');row.className='row';row.dataset.d=d;
     const ar=document.createElement('i');ar.className='ar '+(data.c?'':'leaf');ar.textContent='â–¶';
-    const ic=document.createElement('span');ic.className='ic';ic.textContent=data.c?'í ½í³':'í ½í³„';
+    const ic=document.createElement('span');ic.className='ic';ic.textContent=data.c?'??':'??';
     const lb=document.createElement('span');lb.className='lb'+(d===0?' rl':'');lb.textContent=data.n;
     row.appendChild(ar);row.appendChild(ic);row.appendChild(lb);div.appendChild(row);
     let cd=null;
@@ -67,15 +67,15 @@ function bt(ns,d){
       cd=bt(data.c,d+1);cd.classList.add('hidden');div.appendChild(cd);
       row.addEventListener('click',()=>{
         const o=!cd.classList.contains('hidden');
-        cd.classList.toggle('hidden',o);ar.classList.toggle('open',!o);ic.textContent=o?'í ½í³':'í ½í³‚';
+        cd.classList.toggle('hidden',o);ar.classList.toggle('open',!o);ic.textContent=o?'??':'??';
       });
     }
     data._r=row;data._c=cd;data._a=ar;data._i=ic;w.appendChild(div);
   });return w;
 }
-function ea(){A.forEach(n=>{if(n._c){n._c.classList.remove('hidden');n._a.classList.add('open');n._i.textContent='í ½í³‚';}})}
-function ca(){A.forEach(n=>{if(n._c){n._c.classList.add('hidden');n._a.classList.remove('open');n._i.textContent='í ½í³';}})}
-function ed(m){A.forEach(n=>{if(!n._r)return;const d=parseInt(n._r.dataset.d);if(n._c){const o=d<m;n._c.classList.toggle('hidden',!o);n._a.classList.toggle('open',o);n._i.textContent=o?'í ½í³‚':'í ½í³';}})}
+function ea(){A.forEach(n=>{if(n._c){n._c.classList.remove('hidden');n._a.classList.add('open');n._i.textContent='??';}})}
+function ca(){A.forEach(n=>{if(n._c){n._c.classList.add('hidden');n._a.classList.remove('open');n._i.textContent='??';}})}
+function ed(m){A.forEach(n=>{if(!n._r)return;const d=parseInt(n._r.dataset.d);if(n._c){const o=d<m;n._c.classList.toggle('hidden',!o);n._a.classList.toggle('open',o);n._i.textContent=o?'??':'??';}})}
 function ds(q){
   const s=q.trim().toLowerCase();
   A.forEach(n=>{
@@ -84,7 +84,7 @@ function ds(q){
     const lb=n._r.querySelector('.lb');
     if(m&&s){const i=t.indexOf(s);lb.innerHTML=n.n.slice(0,i)+'<mark>'+n.n.slice(i,i+s.length)+'</mark>'+n.n.slice(i+s.length);}
     else lb.textContent=n.n;
-    if(m){let el=n._r.parentElement;while(el&&el.id!=='tree'){if(el.classList.contains('ch'))el.classList.remove('hidden');if(el.classList.contains('node')){const r=el.querySelector('.row');if(r){const a=r.querySelector('.ar');const ic=r.querySelector('.ic');if(a)a.classList.add('open');if(ic)ic.textContent='í ½í³‚';}}el=el.parentElement;}}
+    if(m){let el=n._r.parentElement;while(el&&el.id!=='tree'){if(el.classList.contains('ch'))el.classList.remove('hidden');if(el.classList.contains('node')){const r=el.querySelector('.row');if(r){const a=r.querySelector('.ar');const ic=r.querySelector('.ic');if(a)a.classList.add('open');if(ic)ic.textContent='??';}}el=el.parentElement;}}
   });
   document.getElementById('st').textContent=s?A.filter(n=>s&&n.n.toLowerCase().includes(s)).length+'ê°œ':''
 }
@@ -93,10 +93,10 @@ const C=document.getElementById('tree');
 D.forEach(r=>{
   const rr=document.createElement('div');rr.className='row';rr.dataset.d='0';
   const ar=document.createElement('i');ar.className='ar open';ar.textContent='â–¶';
-  const ic=document.createElement('span');ic.className='ic';ic.textContent='í ½í³‚';
+  const ic=document.createElement('span');ic.className='ic';ic.textContent='??';
   const lb=document.createElement('span');lb.className='lb rl';lb.textContent=r.n;
   rr.appendChild(ar);rr.appendChild(ic);rr.appendChild(lb);C.appendChild(rr);
   r._r=rr;r._a=ar;r._i=ic;
-  if(r.c){const ch=bt(r.c,1);r._c=ch;C.appendChild(ch);rr.addEventListener('click',()=>{const o=!ch.classList.contains('hidden');ch.classList.toggle('hidden',o);ar.classList.toggle('open',!o);ic.textContent=o?'í ½í³':'í ½í³‚';});}
+  if(r.c){const ch=bt(r.c,1);r._c=ch;C.appendChild(ch);rr.addEventListener('click',()=>{const o=!ch.classList.contains('hidden');ch.classList.toggle('hidden',o);ar.classList.toggle('open',!o);ic.textContent=o?'??':'??';});}
 });
 </script></body></html>
